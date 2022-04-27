@@ -1,0 +1,58 @@
+﻿@page
+@model Reports.Pages.SpecialPages.WeeklyTasksModel
+@{
+    ViewData["Title"] = "WeeklyTasks";
+}
+
+<h1>Weekly Tasks</h1>
+
+<form>
+    <p>
+        Person ID : <input type="number" asp-for="PersonId" /><br>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].TaskText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].DeadlineTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].LastChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Task) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeadlineTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/Persons/Index">Check all persons</a></p>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/Tasks/Index">Check all tasks</a></p>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/Posts/Index">Check all report</a></p>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/SpecialPages/KPIEmployees">Get list done reports and not done report</a></p>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/Posts/Create">Create weekly report</a></p>
+    <p><a class="nav-link text-blue" asp-area="" asp-page="/SpecialPages/WeeklyTasks">Get weekly tasks</a></p>
+</div>

@@ -1,0 +1,74 @@
+﻿@page
+@model Reports.Pages.Tasks.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tasks</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="TaskStatus" asp-items="Model.Status">
+            <option value="">All</option>
+        </select> <br>
+        TaskId: <input type="number" asp-for="TaskId" /><br>
+        Tasks that are assigned to subordinates by a specific employee with id: <input type="number" asp-for="ParentId" /><br>
+        Login employee performing tasks: <input type="text" asp-for="PersonLogin" /><br>
+        Date time last change : <input type="date" asp-for="TimeLastChange" /><br>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].EmployeeId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].TaskText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].DeadlineTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].LastChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Task[0].Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Task) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeadlineTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TaskId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TaskId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TaskId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@page
+@model Reports.Pages.Tasks.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Task</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Task.TaskId" />
+            <div class="form-group">
+                <label asp-for="Task.EmployeeId" class="control-label"></label>
+                <input asp-for="Task.EmployeeId" class="form-control" />
+                <span asp-validation-for="Task.EmployeeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.TaskText" class="control-label"></label>
+                <input asp-for="Task.TaskText" class="form-control" />
+                <span asp-validation-for="Task.TaskText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.DeadlineTime" class="control-label"></label>
+                <input asp-for="Task.DeadlineTime" class="form-control" />
+                <span asp-validation-for="Task.DeadlineTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Task.Status" class="control-label"></label>
+                <input asp-for="Task.Status" class="form-control" />
+                <span asp-validation-for="Task.Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

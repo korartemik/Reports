@@ -1,0 +1,70 @@
+﻿@page
+@model Reports.Pages.SpecialPages.KPIEmployeesModel
+@{
+    ViewData["Title"] = "KPIEmployees";
+}
+
+<h1>Persons</h1>
+
+<form>
+    <p>
+        FindByPersonId: <input type="number" asp-for="PersonId" /><br>
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<h4>Persons who done report</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonDoneReport[0].Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonDoneReport[0].ParentId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PersonDoneReport) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<h4>Persons who no done report</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonNoDoneReport[0].Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PersonNoDoneReport[0].ParentId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PersonNoDoneReport) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Login)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentId)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
